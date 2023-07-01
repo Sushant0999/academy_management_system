@@ -5,6 +5,8 @@ import managment.netsmartz.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CourseService {
 
@@ -14,4 +16,27 @@ public class CourseService {
     public Course insertCourse(Course course) {
         return courseRepository.save(course);
     }
+
+    public Optional<Course> getCourse(Integer id){
+        return courseRepository.findById(id);
+    }
+
+    public void deleteCourse(Integer id){
+        courseRepository.deleteById(id);
+    }
+
+    public Course updateCourse(Integer id, Course course){
+        Course courseOld = courseRepository.findById(id).get();
+        if(courseOld != null){
+            courseOld.setName(course.getName());
+            courseOld.setFees(course.getFees());
+            courseOld.setTrainer_name(course.getTrainer_name());
+            return courseRepository.save(courseOld);
+        }else{
+            System.out.println("NOT FOUND");
+            return null;
+        }
+    }
+
+
 }
