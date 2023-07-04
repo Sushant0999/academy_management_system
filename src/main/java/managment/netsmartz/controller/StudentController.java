@@ -3,12 +3,34 @@ package managment.netsmartz.controller;
 import managment.netsmartz.modal.Student;
 import managment.netsmartz.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/student")
 public class StudentController {
+
+    @GetMapping("/home")
+    public String home(){
+        return "/user/home";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        System.out.println("CALLED LOGIN");
+        return "/user/login";
+    }
+
+    @GetMapping("/signup")
+    public String signup(){
+        return "/user/signup";
+    }
+
+    @GetMapping("/forget")
+    public String forget(){
+        return "/user/forget";
+    }
 
     @Autowired
     private StudentService studentService;
@@ -29,9 +51,5 @@ public class StudentController {
         studentService.deleteStudent(id);
     }
 
-    @PutMapping("/update/{id}")
-    public Student updateStudent(@PathVariable Integer id, @RequestBody Student student) {
-        return studentService.updateStudent(id, student);
-    }
 
 }

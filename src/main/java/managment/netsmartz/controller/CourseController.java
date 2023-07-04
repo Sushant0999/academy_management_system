@@ -30,10 +30,10 @@ public class CourseController {
         courseService.deleteCourse(id);
     }
 
-    @PutMapping("/update/{id}")
-    public Course updateCourse(@PathVariable Integer id, @RequestBody Course course) {
-        return courseService.updateCourse(id, course);
-    }
+//    @PutMapping("/update/{id}")
+//    public Course updateCourse(@PathVariable Integer id, @RequestBody Course course) {
+//        return courseService.updateCourse(id, course);
+//    }
 
 
 }

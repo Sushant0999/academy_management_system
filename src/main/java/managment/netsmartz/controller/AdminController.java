@@ -3,15 +3,32 @@ package managment.netsmartz.controller;
 import managment.netsmartz.modal.Admin;
 import managment.netsmartz.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/admin")
 public class AdminController {
     @Autowired
     private AdminService adminService;
+
+    @GetMapping("/login")
+    public String login(){
+        System.out.println("CALLED LOGIN");
+        return "/admin/login";
+    }
+
+    @GetMapping("/signup")
+    public String signup(){
+        return "/admin/signup";
+    }
+
+    @GetMapping("/forget")
+    public String forget(){
+        return "/admin/forget";
+    }
 
     @PostMapping("/insert")
     public Admin insertAdmin(@RequestBody Admin admin) {
