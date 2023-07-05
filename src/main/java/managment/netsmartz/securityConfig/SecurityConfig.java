@@ -23,45 +23,42 @@ public class SecurityConfig {
     }
 
 
+//    @Bean
+//    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http.csrf().disable()
+//                .authorizeHttpRequests(
+//                        (authorize) ->
+//                        {
+//                            try {
+//                                authorize.requestMatchers("/admin/**").authenticated()
+//                                .requestMatchers("/student/**").authenticated()
+//                                .anyRequest().permitAll().and().formLogin().loginPage("/login");
+//                            } catch (Exception e) {
+//                                throw new RuntimeException(e);
+//                            }
+//                        }
+//                )
+//                .httpBasic(Customizer.withDefaults());
+//
+//        return http.build();
+//    }
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeHttpRequests(
-                        (authorize) ->
-                        {
-                            try {
-                                authorize.requestMatchers("/admin/**").authenticated()
-//                                .requestMatchers("/student/**").authenticated()
-                                .anyRequest().permitAll().and().formLogin().loginPage("/login");
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
+        http.csrf().disable().authorizeHttpRequests((authorize) ->
+                        authorize.requestMatchers("/admin/**").authenticated().anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults());
-
         return http.build();
     }
-    //SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    //    http.csrf().disable()
-    //        .authorizeRequests((authorize) ->
-    //            authorize
-    //                .antMatchers("/admin/**").authenticated()
-    //                .antMatchers("/user/**").authenticated()
-    //                .anyRequest().permitAll() // Allow all other requests without authentication
-    //        )
-    //        .httpBasic(Customizer.withDefaults());
-    //
-    //    return http.build();
-    //}
 
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.builder().username("user").password(passwordEncoder.encode("user")).roles("USER")
-                .build();
+//        UserDetails user = User.builder().username("user").password(passwordEncoder.encode("user")).roles("USER")
+//                .build();
         UserDetails admin = User.builder().username("admin").password(passwordEncoder.encode("admin")).roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(user, admin);
+        return new InMemoryUserDetailsManager(admin);
     }
 
 }
