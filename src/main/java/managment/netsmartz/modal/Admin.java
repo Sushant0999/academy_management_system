@@ -1,10 +1,7 @@
 package managment.netsmartz.modal;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.Setter;
 
 @Entity
 @Table(name = "admin")
@@ -23,6 +20,16 @@ public class Admin {
     private String password;
 
     private String token;
+
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public int getId() {
         return id;

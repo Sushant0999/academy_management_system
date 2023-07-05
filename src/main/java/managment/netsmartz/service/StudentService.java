@@ -25,19 +25,4 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-//    public Student updateStudent(Integer id, Student student){
-//        Student studentOld = studentRepository.findById(id).get();
-//        if(studentOld != null){
-//            studentOld.setName(student.getName());
-//            studentOld.setEmail(student.getEmail());
-//            studentOld.setAddress(student.getAddress());
-//            studentOld.setPassword(student.getPassword());
-//            studentOld.setCollegeName(student.getCollegeName());
-//            studentOld.setDob(student.getDob());
-//            return studentRepository.save(studentOld);
-//        }else{
-//            return null;
-//        }
-//    }
-
 }
