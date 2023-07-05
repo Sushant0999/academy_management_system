@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <title>Forget Password</title>
+</head>
+<body>
+<section>
+    <h1>Forget Password</h1>
+    <form action="/forgot-password" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</section>
+</body>
+</html>

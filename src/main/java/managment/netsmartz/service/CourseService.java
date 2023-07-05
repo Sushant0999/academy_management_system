@@ -25,18 +25,18 @@ public class CourseService {
         courseRepository.deleteById(id);
     }
 
-    public Course updateCourse(Integer id, Course course){
-        Course courseOld = courseRepository.findById(id).get();
-        if(courseOld != null){
-            courseOld.setName(course.getName());
-            courseOld.setFees(course.getFees());
-            courseOld.setTrainer_name(course.getTrainer_name());
-            return courseRepository.save(courseOld);
-        }else{
-            System.out.println("NOT FOUND");
-            return null;
-        }
-    }
+//    public Course updateCourse(Integer id, Course course){
+//        Course courseOld = courseRepository.findById(id).get();
+//        if(courseOld != null){
+//            courseOld.setName(course.getName());
+//            courseOld.setFees(course.getFees());
+//            courseOld.setTrainer_name(course.getTrainer_name());
+//            return courseRepository.save(courseOld);
+//        }else{
+//            System.out.println("NOT FOUND");
+//            return null;
+//        }
+//    }
 
 
 }
