@@ -20,9 +20,14 @@ public class AdminController {
         return "/admin/login";
     }
 
-    @GetMapping("/signup")
+    @GetMapping("/course")
+    public String course(){
+        return "/admin/course";
+    }
+
+    @GetMapping("/register")
     public String signup(){
-        return "/admin/signup";
+        return "/admin/register";
     }
 
     @GetMapping("/forget")

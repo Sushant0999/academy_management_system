@@ -3,12 +3,14 @@ package managment.netsmartz.controller;
 import managment.netsmartz.modal.Course;
 import managment.netsmartz.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/course")
+//@PreAuthorize("ROLE_ADMIN")
+@RequestMapping("/admin/course")
 public class CourseController {
 
     @Autowired
