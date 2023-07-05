@@ -3,6 +3,7 @@ package managment.netsmartz.controller;
 import managment.netsmartz.modal.Admin;
 import managment.netsmartz.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,20 +15,26 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping("/login")
-    public String login(){
-        System.out.println("CALLED LOGIN");
-        return "/admin/login";
+
+    @GetMapping("/course")
+    public String course() {
+        return "/admin/course";
     }
 
-    @GetMapping("/signup")
-    public String signup(){
-        return "/admin/signup";
+    @GetMapping("/register")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String signup() {
+        return "/admin/register";
     }
 
-    @GetMapping("/forget")
-    public String forget(){
-        return "/admin/forget";
+    @GetMapping("/home")
+    public String home() {
+        return "/admin/home";
+    }
+
+    @GetMapping("/student")
+    public String student() {
+        return "/admin/student";
     }
 
     @PostMapping("/insert")

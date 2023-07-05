@@ -11,5 +11,19 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/signin")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/forget")
+    public String forget(){
+        return "forget";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
 
 }
