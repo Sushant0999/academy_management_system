@@ -44,8 +44,9 @@ public class AdminController {
     }
 
     @GetMapping("/getAllCourse")
-    public ResponseEntity<String> getAll(Model model) {
+    public ResponseEntity<String> getAllCourse(Model model) {
         List<Course> courseList = courseService.getAll();
+        System.out.println(courseList);
         if (courseList != null) {
             model.addAttribute("courseList", courseList);
             System.out.println("m" + model);

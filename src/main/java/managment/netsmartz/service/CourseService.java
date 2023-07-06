@@ -18,15 +18,17 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public List<Course> getAll(){
-        return courseRepository.findAll();
+    public List<Course> getAll() {
+        List<Course> list = (List<Course>) courseRepository.findAll();
+        System.out.println("print " + list);
+        return list;
     }
 
-    public Optional<Course> getCourse(Integer id){
+    public Optional<Course> getCourse(Integer id) {
         return courseRepository.findById(id);
     }
 
-    public void deleteCourse(Integer id){
+    public void deleteCourse(Integer id) {
         courseRepository.deleteById(id);
     }
 
