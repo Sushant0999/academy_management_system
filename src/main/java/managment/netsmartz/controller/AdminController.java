@@ -5,6 +5,7 @@ import managment.netsmartz.modal.Course;
 import managment.netsmartz.service.AdminService;
 import managment.netsmartz.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,15 +43,16 @@ public class AdminController {
         return "redirect:/addCourse";
     }
 
-    @GetMapping("/getAll")
-    public String getAll(Model model) {
+    @GetMapping("/getAllCourse")
+    public ResponseEntity<String> getAll(Model model) {
         List<Course> courseList = courseService.getAll();
-        if(courseList != null){
+        if (courseList != null) {
             model.addAttribute("courseList", courseList);
             System.out.println("m" + model);
             System.out.println("c" + courseList);
+            return ResponseEntity.ok("admin/course");
         }
-        return "admin/course";
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/register")
