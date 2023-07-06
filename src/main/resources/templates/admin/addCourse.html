@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html th="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4">Add Course</div>
+                    <form action="insertCourse" method="post" style="padding: 20px;">
+                        <div class="mb-3 pt-3">
+                            <label for="exampleInputEmail1" class="form-label">Name</label> <input type="text"
+                                                                                                   name="name"
+                                                                                                   class="form-control"
+                                                                                                   id="exampleInputEmail1"
+                                                                                                   aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="exampleInputEmail2" class="form-label">Trainer
+                                Name</label> <input type="text" name="trainer_name"
+                                                    class="form-control" id="exampleInputEmail2"
+                                                    aria-describedby="emailHelp">
+
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="exampleInputEmail3" class="form-label">
+                                Fees</label> <input type="text" name="fees"
+                                                    class="form-control" id="exampleInputEmail3"
+                                                    aria-describedby="emailHelp">
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <div class="text-center mt-2 mb-3">
+                        <a th:href="@{/forget}" class="text-decoration:none fs-S">Forget
+                            Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

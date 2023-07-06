@@ -20,45 +20,17 @@
                             <th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
                         </div>
                     </th:block>
-                    <!--
-                    <div class="card-body">
-                        <form action="createUser" method="post">
-                            <label>Enter Name</label>
-                            <div class="mb-3">
-                                <input type="text" name="fullname" class="form-contorl">
-                            </div>
-                            <label>Enter Email</label>
-                            <div class="mb-3">
-                                <input type="text" name="email" class="form-contorl">
-                            </div>
-                            <label>Enter Address</label>
-                            <div class="mb-3">
-                                <input type="text" name="address" class="form-contorl">
-                            </div>
-                            <label>Enter Qualification</label>
-                            <div class="mb-3">
-                                <input type="text" name="qualification" class="form-contorl">
-                            </div>
-                            <label>Enter Password</label>
-                            <div class="mb-3">
-                                <input type="text" name="password" class="form-contorl">
-                            </div>
-                            <div>
-                                <button class="btn btn-primary col-md-12">Register</button>
-                            </div>
-                        </form>
-                    </div>
--->
-                    <form action="createUser" method="post" style="padding: 20px;">
+
+                    <form action="insert" method="post" style="padding: 20px;">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Full
-                                Name</label> <input type="text" name="fullname" class="form-control"
+                                Name</label> <input type="text" name="name" class="form-control"
                                                     id="exampleInputName" aria-describedby="emailHelp">
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email
-                                address</label> <input type="text" name="username" class="form-control"
+                                address</label> <input type="text" name="email" class="form-control"
                                                        id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
 
@@ -70,10 +42,31 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Enter
-                                Qualification</label> <input type="text" name="qualification"
-                                                             class="form-control" id="exampleInputQualification"
-                                                             aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Select Course</label>
+                            <select name="course" id="course">
+                                <option value="1">Java</option>
+                                <option value="2">Python</option>
+                                <option value="3">MERN</option>
+                                <option value="4">MEAN</option>
+                                <option value="5">DotNET</option>
+                            </select>
+                            <!--
+                            <div class="gender-details">
+					<input type="radio" name="gender" id="dot-1" value="male">
+					<input type="radio" name="gender" id="dot-2" value="female">
+					<input type="radio" name="gender" id="dot-3" value="others">
+					<span class="gender-title">Gender</span>
+					<div class="category">
+						<label for="dot-1"> <span class="dot one"></span> <span
+							class="gender">Male</span>
+						</label> <label for="dot-2"> <span class="dot two"></span> <span
+							class="gender">Female</span>
+						</label> <label for="dot-3"> <span class="dot three"></span> <span
+							class="gender">Prefer not to say</span>
+						</label>
+					</div>
+				</div>
+                            -->
                         </div>
 
 

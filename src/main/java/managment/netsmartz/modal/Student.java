@@ -11,6 +11,8 @@ public class Student {
 
     private String name;
 
+    private String address;
+
     private String email;
     @JsonBackReference
     @ManyToOne
@@ -18,6 +20,24 @@ public class Student {
     private Course course;
 
     private String role;
+
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getRole() {
         return role;
@@ -58,5 +78,18 @@ public class Student {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", course=" + course +
+                ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

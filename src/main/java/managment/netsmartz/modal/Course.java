@@ -3,9 +3,7 @@ package managment.netsmartz.modal;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Course {
@@ -13,6 +11,10 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    private String trainer_name;
+
+    private double fees;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "course")
@@ -40,5 +42,32 @@ public class Course {
 
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
+    }
+
+    public String getTrainer_name() {
+        return trainer_name;
+    }
+
+    public void setTrainer_name(String trainer_name) {
+        this.trainer_name = trainer_name;
+    }
+
+    public double getFees() {
+        return fees;
+    }
+
+    public void setFees(double fees) {
+        this.fees = fees;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", trainer_name='" + trainer_name + '\'' +
+                ", fees=" + fees +
+                ", studentList=" + studentList +
+                '}';
     }
 }

@@ -3,11 +3,37 @@
       th:replace="~{base::layout(~{::section})}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Get All</title>
 </head>
 <body>
+<button type="button" class="btn btn-primary btn-lg">Large button</button>
 <section>
-    <h1>THIS IS COURSE PAGE</h1>
+    <div class="container">
+        <h1 align="center" style="padding-top: 20px;">HOME PAGE</h1>
+    </div>
+    <div class="container">
+        <table class="table table-hover table-success">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Trainer Name</th>
+                <th scope="col">Fees</th>
+                <th scope="col">Students List</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course : ${courseList.content}">
+                <td th:text="${course.id}"/>
+                <td th:text="${course.name}"/>
+                <td th:text="${course.trainer_name}"/>
+                <td th:text="${course.fees}"/>
+                <td th:text="${course.studentList}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
+
 </body>
 </html>
