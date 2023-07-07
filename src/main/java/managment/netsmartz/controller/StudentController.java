@@ -2,7 +2,7 @@ package managment.netsmartz.controller;
 
 import managment.netsmartz.modal.Student;
 import managment.netsmartz.service.PdfService;
-import managment.netsmartz.service.StudentService;
+import managment.netsmartz.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -18,9 +18,8 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-
     @Autowired
-    private StudentService studentService;
+    private StudentServiceImpl studentService;
 
     @Autowired
     private PdfService pdfService;
@@ -30,8 +29,6 @@ public class StudentController {
     public String home() {
         return "/user/home";
     }
-
-
 
     @GetMapping("/get/{id}")
     public Optional<Student> getStudent(@PathVariable Integer id) {

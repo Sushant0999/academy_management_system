@@ -1,7 +1,8 @@
 package managment.netsmartz.controller;
 
+import jakarta.servlet.http.HttpSession;
 import managment.netsmartz.modal.Student;
-import managment.netsmartz.service.StudentService;
+import managment.netsmartz.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     @Autowired
-    private StudentService studentService;
+    private StudentServiceImpl studentService;
 
     @GetMapping("/")
     public String index() {
@@ -36,11 +37,17 @@ public class HomeController {
     }
 
     @PostMapping("/insert")
-    public String insertStudent(@ModelAttribute Student student) {
-        System.out.println("CALLED\n" + student);
-        studentService.insertStudent(student);
+    public String insertStudent(@ModelAttribute Student student, HttpSession session) {
+        boolean check = studentService.checkEmail(student.getEmail());
+        if (check) {
+            session.setAttribute("msg", "EMAIL ALREADY EXIST");
+        } else {
+            session.setAttribute("msg", "REGISTRATION SUCCESSFUL");
+            studentService.insertStudent(student);
+        }
         return "redirect:/register";
-
     }
+
+
 
 }

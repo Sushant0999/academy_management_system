@@ -5,13 +5,11 @@ import managment.netsmartz.modal.Course;
 import managment.netsmartz.service.AdminService;
 import managment.netsmartz.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -22,12 +20,6 @@ public class AdminController {
 
     @Autowired
     private CourseService courseService;
-
-    @GetMapping("/course")
-//    @PreAuthorize("hasRole('ADMIN')")
-    public String course() {
-        return "/admin/course";
-    }
 
     @GetMapping("/addCourse")
     @PreAuthorize("hasRole('ADMIN')")
@@ -44,16 +36,12 @@ public class AdminController {
     }
 
     @GetMapping("/getAllCourse")
-    public ResponseEntity<String> getAllCourse(Model model) {
-        List<Course> courseList = courseService.getAll();
-        System.out.println(courseList);
-        if (courseList != null) {
-            model.addAttribute("courseList", courseList);
-            System.out.println("m" + model);
-            System.out.println("c" + courseList);
-            return ResponseEntity.ok("admin/course");
-        }
-        return ResponseEntity.noContent().build();
+    public String getAllCourse(Model model) {
+        //TODO DISPLAY COURSES AND THEIR DETAILS
+//        List<Course> courseList = courseService.getAll();
+//        System.out.println(courseList);
+//        model.addAttribute("courseList", courseList);
+        return "/admin/getAllCourse";
     }
 
     @GetMapping("/register")
